@@ -10,7 +10,26 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+
+// Allowed CORS origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://contact-form-indol.vercel.app",
+  "https://portfolio-shadcn-eight.vercel.app"
+];
+
+// CORS setup with error handling
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
