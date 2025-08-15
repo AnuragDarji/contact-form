@@ -14,15 +14,19 @@ const app = express();
 // Allowed CORS origins
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:3000",
   "https://contact-form-gilt-three.vercel.app",
   "https://portfolio-shadcn-eight.vercel.app",
+  // add Vercel preview domains:
+  /\.vercel\.app$/,
 ];
 
 // CORS setup with error handling
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.some((o) => new RegExp(o).test(origin))) {
         callback(null, true);
       } else {
         callback(new Error("CORS not allowed"));
@@ -32,6 +36,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 // MongoDB Connection
