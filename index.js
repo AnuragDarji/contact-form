@@ -78,5 +78,9 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Contact Form API");
+});
+
 // Export for Vercel
 module.exports = app;
