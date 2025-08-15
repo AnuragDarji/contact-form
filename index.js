@@ -16,7 +16,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   "https://contact-form-gilt-three.vercel.app",
-  "https://contact-form-indol.vercel.app/api/contact",
+  "https://contact-form-gilt-three.vercel.app/api/contact",
   "https://portfolio-shadcn-eight.vercel.app",
 ];
 
