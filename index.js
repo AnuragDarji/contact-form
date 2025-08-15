@@ -14,7 +14,7 @@ const app = express();
 // Allowed CORS origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://contact-form-indol.vercel.app",
+  "https://contact-form-gilt-three.vercel.app",
   "https://portfolio-shadcn-eight.vercel.app",
 ];
 
